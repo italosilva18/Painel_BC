@@ -1,8 +1,9 @@
 
 from django.urls import path
-from registro.views import home
+from .import views
 
 urlpatterns = [
-    path('', home),
+    path('', views.home),
+    path('registro/', views.registro),
     
 ]
