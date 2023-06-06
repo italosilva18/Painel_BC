@@ -32,6 +32,10 @@ class RegistroEvento(models.Model):
     
 
 class RegistroAtividade(models.Model):
+    DEMANDA_CHOICES = [
+        ('sim', 'Sim'),
+        ('nao', 'Não'),
+    ]
     funcionario = models.ForeignKey(Funcionario, on_delete=models.CASCADE)
     numero_ordem_servico = models.IntegerField()
     data_registro = models.DateField()
@@ -39,9 +43,8 @@ class RegistroAtividade(models.Model):
     evento = models.ManyToManyField(RegistroEvento)
     inspecoes_equipamentos = models.ManyToManyField(InspecaoEquipamento)
     evento_automatico = models.BooleanField(default=False)
-
-    
-
+    demanda = models.CharField(max_length=3, choices=DEMANDA_CHOICES, default='nao')
+    texto_demanda = models.TextField(blank=True, null=True)
     
     
 
