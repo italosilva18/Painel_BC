@@ -46,7 +46,7 @@ class RegistroAtividade(models.Model):
     demanda = models.CharField(max_length=3, choices=DEMANDA_CHOICES, default='nao')
     texto_demanda = models.TextField(blank=True, null=True)
     
-    
+
 
 
     
